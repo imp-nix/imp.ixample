@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    imp.url = "github:Alb-O/imp";
+    imp.url = "git+file:./tmp/imp";
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
@@ -26,70 +26,23 @@
     }@inputs:
     let
       lib = nixpkgs.lib;
+      pkgsFor = system: nixpkgs.legacyPackages.${system};
+      args = {
+        inherit
+          self
+          inputs
+          imp
+          lib
+          nixpkgs
+          home-manager
+          flake-utils
+          treefmt-nix
+          pkgsFor
+          ;
+      };
     in
-    {
-      nixosConfigurations = {
-        workstation = lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            # config/ subdirectory handled by configTree in default.nix
-            ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/workstation)
-            (imp ./modules/nixos)
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
-                users.alice = import ./home/alice;
-              };
-            }
-          ];
-        };
-
-        server = lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/server)
-            (imp ./modules/nixos)
-            # Only include server-specific profiles
-            ((imp.withLib lib).filter (lib.hasInfix "/server/") ./modules/profiles)
-          ];
-        };
-
-        # Run with: nix run .#apps.x86_64-linux.vm
-        vm = lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/vm)
-            (imp ./modules/nixos)
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
-                users.alice = import ./home/alice;
-              };
-            }
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "alice@workstation" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            (imp ./home/alice)
-            (imp ./modules/home)
-          ];
-        };
-      };
-
+    imp.treeWith lib (f: f args) ./outputs
+    // {
       nixosModules = {
         default = imp ./modules/nixos;
         profiles = imp ./modules/profiles;
@@ -98,38 +51,9 @@
       homeModules = {
         default = imp ./modules/home;
       };
-    }
-    # Per-system outputs from ./outputs directory
-    // flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        args = {
-          inherit
-            self
-            pkgs
-            inputs
-            treefmt-nix
-            ;
-        };
-      in
-      imp.treeWith lib (f: f args) ./outputs
-    )
-    // {
+
       overlays.default = final: prev: {
-        ix =
-          let
-            pkgs = nixpkgs.legacyPackages.${prev.system};
-            args = {
-              inherit
-                self
-                pkgs
-                inputs
-                treefmt-nix
-                ;
-            };
-          in
-          (imp.treeWith lib (f: f args) ./outputs).packages or { };
+        ix = self.packages.${prev.system} or { };
       };
     };
 }

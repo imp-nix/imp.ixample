@@ -1,12 +1,18 @@
 {
-  pkgs,
+  lib,
+  flake-utils,
+  pkgsFor,
   treefmt-nix,
   ...
 }:
-let
-  treefmtEval = treefmt-nix.lib.evalModule pkgs {
-    projectRootFile = "flake.nix";
-    programs.nixfmt.enable = true;
-  };
-in
-treefmtEval.config.build.wrapper
+lib.genAttrs flake-utils.lib.defaultSystems (
+  system:
+  let
+    pkgs = pkgsFor system;
+    treefmtEval = treefmt-nix.lib.evalModule pkgs {
+      projectRootFile = "flake.nix";
+      programs.nixfmt.enable = true;
+    };
+  in
+  treefmtEval.config.build.wrapper
+)

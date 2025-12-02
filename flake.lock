@@ -88,15 +88,15 @@
       "locked": {
         "lastModified": 1764643410,
         "narHash": "sha256-Hy4TXeKCyWlRqTQwpSSol8mETVxG+sFiE3tNTsnyIvA=",
-        "owner": "Alb-O",
-        "repo": "imp",
+        "ref": "refs/heads/main",
         "rev": "4d2fed358cff372d0f679fbdf518068aabfc63e4",
-        "type": "github"
+        "revCount": 95,
+        "type": "git",
+        "url": "file:./tmp/imp"
       },
       "original": {
-        "owner": "Alb-O",
-        "repo": "imp",
-        "type": "github"
+        "type": "git",
+        "url": "file:./tmp/imp"
       }
     },
     "nix-github-actions": {
