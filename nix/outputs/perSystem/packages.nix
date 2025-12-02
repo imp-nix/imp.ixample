@@ -1,4 +1,3 @@
-# Per-system packages - receives pkgs automatically
 { pkgs, ... }:
 {
   hello-ix = pkgs.writeShellScriptBin "hello-ix" ''

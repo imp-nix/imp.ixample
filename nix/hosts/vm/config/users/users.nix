@@ -1,10 +1,9 @@
-# Password: test
 { ... }:
 {
   alice = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    initialPassword = "test";
+    initialPassword = "changeme";
   };
-  root.initialPassword = "test";
+  root.initialPassword = "changeme";
 }

@@ -1,4 +1,3 @@
-# Security hardening
 { lib, ... }:
 {
   boot.kernel.sysctl = {

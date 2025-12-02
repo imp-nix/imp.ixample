@@ -1,4 +1,3 @@
-# Per-system dev shells
 { pkgs, ... }:
 {
   default = pkgs.mkShell {

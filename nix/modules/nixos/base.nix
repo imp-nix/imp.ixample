@@ -1,4 +1,3 @@
-# Shared NixOS base configuration
 { lib, pkgs, ... }:
 {
   nix = {

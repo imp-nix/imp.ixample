@@ -1,5 +1,3 @@
-# Hardware configuration for workstation
-# Automatically imported by imp alongside default.nix
 {
   config,
   lib,

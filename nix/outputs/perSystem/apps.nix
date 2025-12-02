@@ -1,4 +1,3 @@
-# Per-system apps
 { self, pkgs, ... }:
 {
   vm = {

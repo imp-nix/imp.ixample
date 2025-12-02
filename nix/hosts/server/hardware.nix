@@ -1,4 +1,3 @@
-# Server hardware configuration
 { lib, modulesPath, ... }:
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];

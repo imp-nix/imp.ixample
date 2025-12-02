@@ -1,4 +1,3 @@
-# Per-system formatter
 { pkgs, treefmt-nix, ... }:
 let
   treefmtEval = treefmt-nix.lib.evalModule pkgs {

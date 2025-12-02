@@ -1,4 +1,3 @@
-# Per-system checks
 {
   self,
   pkgs,

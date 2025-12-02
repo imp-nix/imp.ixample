@@ -1,4 +1,3 @@
-# Shared Home Manager base
 { pkgs, ... }:
 {
   home.packages = with pkgs; [

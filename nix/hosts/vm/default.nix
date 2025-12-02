@@ -1,4 +1,4 @@
-# Run with: nix run .#apps.x86_64-linux.vm
+# Run with: nix run .#vm
 {
   imp,
   modulesPath,
@@ -38,8 +38,8 @@
     ╔═══════════════════════════════════════════════════════════╗
     ║  IX NixOS Test VM                                         ║
     ║                                                           ║
-    ║  User: alice (password: test)                             ║
-    ║  Root password: test                                      ║
+    ║  User: alice (password: changeme)                         ║
+    ║  Root password: changeme                                  ║
     ║  SSH: ssh -p 2222 alice@localhost                         ║
     ║  Config mounted at: /mnt/config                           ║
     ║                                                           ║
