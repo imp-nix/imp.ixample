@@ -1,5 +1,3 @@
-# VS Code configuration
-# Path: programs/vscode.nix -> programs.vscode = { ... }
 { pkgs, ... }:
 {
   enable = true;

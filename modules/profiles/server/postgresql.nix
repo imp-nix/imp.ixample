@@ -1,4 +1,3 @@
-# Server profile - PostgreSQL database
 { pkgs, ... }:
 {
   services.postgresql = {

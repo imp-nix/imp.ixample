@@ -1,4 +1,3 @@
-# SSH server configuration
 { ... }:
 {
   enable = true;

@@ -1,4 +1,4 @@
-# VM users
+# Password: test
 { ... }:
 {
   alice = {

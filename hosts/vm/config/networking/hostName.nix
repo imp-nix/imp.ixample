@@ -1,2 +1,1 @@
-# VM hostname
 { ... }: "ix-vm"

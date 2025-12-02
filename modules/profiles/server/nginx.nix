@@ -1,6 +1,3 @@
-# Server profile - Nginx web server
-# These modules are selectively imported using:
-#   imp.filter (lib.hasInfix "/server/") ./modules/profiles
 { ... }:
 {
   services.nginx = {
@@ -11,7 +8,6 @@
     recommendedTlsSettings = true;
   };
 
-  # Open HTTP/HTTPS ports
   networking.firewall.allowedTCPPorts = [
     80
     443

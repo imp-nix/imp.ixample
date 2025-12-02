@@ -28,20 +28,14 @@
       lib = nixpkgs.lib;
     in
     {
-      # NixOS configurations - each host imports modules via imp
       nixosConfigurations = {
-        # Example workstation host
         workstation = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            # Import host modules, excluding config/ (handled by configTree in default.nix)
+            # config/ subdirectory handled by configTree in default.nix
             ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/workstation)
-
-            # Import shared NixOS modules
             (imp ./modules/nixos)
-
-            # Home Manager as NixOS module
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -54,35 +48,24 @@
           ];
         };
 
-        # Example server host
         server = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            # Import host modules, excluding config/
             ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/server)
             (imp ./modules/nixos)
-
-            # Server uses imp filtering for selective modules
-            (
-              let
-                i = imp.withLib lib;
-              in
-              i.filter (lib.hasInfix "/server/") ./modules/profiles
-            )
+            # Only include server-specific profiles
+            ((imp.withLib lib).filter (lib.hasInfix "/server/") ./modules/profiles)
           ];
         };
 
-        # QEMU VM for testing
+        # Run with: nix run .#apps.x86_64-linux.vm
         vm = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            # Import host modules, excluding config/
             ((imp.withLib lib).filterNot (lib.hasInfix "/config/") ./hosts/vm)
             (imp ./modules/nixos)
-
-            # Include Home Manager in VM for testing
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -96,31 +79,27 @@
         };
       };
 
-      # Standalone Home Manager configurations
       homeConfigurations = {
         "alice@workstation" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            # Import all home modules via imp
             (imp ./home/alice)
             (imp ./modules/home)
           ];
         };
       };
 
-      # NixOS modules exposed for external use
       nixosModules = {
         default = imp ./modules/nixos;
         profiles = imp ./modules/profiles;
       };
 
-      # Home Manager modules exposed for external use
       homeModules = {
         default = imp ./modules/home;
       };
     }
-    # Per-system outputs using flake-utils
+    # Per-system outputs from ./outputs directory
     // flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -133,13 +112,10 @@
             treefmt-nix
             ;
         };
-        # Use imp.treeWith to load per-system outputs from ./outputs
-        outputs = imp.treeWith lib (f: f args) ./outputs;
       in
-      outputs
+      imp.treeWith lib (f: f args) ./outputs
     )
     // {
-      # Overlay combining all packages (system-independent)
       overlays.default = final: prev: {
         ix =
           let

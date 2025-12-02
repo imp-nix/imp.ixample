@@ -1,4 +1,3 @@
-# SSH server for VM
 { ... }:
 {
   enable = true;

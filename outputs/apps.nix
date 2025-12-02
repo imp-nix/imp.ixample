@@ -1,8 +1,5 @@
-# Per-system apps
-# Demonstrates the tree pattern for apps output
 { self, pkgs, ... }:
 {
-  # Run the test VM
   vm = {
     type = "app";
     meta.description = "Run the IX test VM";
@@ -17,7 +14,6 @@
     );
   };
 
-  # Quick rebuild script
   rebuild = {
     type = "app";
     meta.description = "Rebuild NixOS configuration";
@@ -31,7 +27,6 @@
     );
   };
 
-  # Update flake inputs
   update = {
     type = "app";
     meta.description = "Update flake inputs";
@@ -45,7 +40,6 @@
     );
   };
 
-  # Show flake info
   info = {
     type = "app";
     meta.description = "Show flake configuration info";

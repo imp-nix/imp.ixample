@@ -1,5 +1,3 @@
-# Zsh configuration
-# Path: programs/zsh.nix -> programs.zsh = { ... }
 { ... }:
 {
   enable = true;

@@ -1,7 +1,6 @@
-# Security hardening module
+# Security hardening
 { lib, ... }:
 {
-  # Kernel hardening
   boot.kernel.sysctl = {
     "kernel.dmesg_restrict" = true;
     "kernel.kptr_restrict" = 2;
@@ -9,15 +8,12 @@
     "kernel.unprivileged_bpf_disabled" = true;
   };
 
-  # Limit sudo timeout
   security.sudo.extraConfig = ''
     Defaults timestamp_timeout=15
   '';
 
-  # Enable audit
   security.auditd.enable = lib.mkDefault true;
 
-  # Fail2ban for SSH protection
   services.fail2ban = {
     enable = true;
     maxretry = 5;

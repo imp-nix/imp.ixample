@@ -1,5 +1,3 @@
-# Git configuration
-# Path: programs/git.nix -> programs.git = { ... }
 { ... }:
 {
   enable = true;

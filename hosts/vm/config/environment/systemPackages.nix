@@ -1,4 +1,3 @@
-# System packages for testing
 { pkgs, ... }:
 with pkgs;
 [

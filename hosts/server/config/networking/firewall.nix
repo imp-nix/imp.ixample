@@ -1,4 +1,3 @@
-# Firewall configuration
 { ... }:
 {
   enable = true;

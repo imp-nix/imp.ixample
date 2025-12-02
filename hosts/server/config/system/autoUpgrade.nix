@@ -1,4 +1,4 @@
-# Automatic system updates
+# Daily at 4am
 { ... }:
 {
   enable = true;

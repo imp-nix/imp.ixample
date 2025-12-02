@@ -1,4 +1,3 @@
-# services/pipewire.nix -> services.pipewire
 { ... }:
 {
   enable = true;

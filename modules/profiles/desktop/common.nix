@@ -1,10 +1,7 @@
-# Desktop profile - Common desktop applications
 { pkgs, ... }:
 {
-  # Flatpak support
   services.flatpak.enable = true;
 
-  # Desktop fonts
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -20,6 +17,5 @@
     };
   };
 
-  # Printing
   services.printing.enable = true;
 }

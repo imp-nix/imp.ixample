@@ -1,5 +1,3 @@
-# Starship prompt configuration
-# Path: programs/starship.nix -> programs.starship = { ... }
 { ... }:
 {
   enable = true;

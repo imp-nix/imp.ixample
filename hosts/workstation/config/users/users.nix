@@ -1,4 +1,3 @@
-# users/users.nix -> users.users
 { ... }:
 {
   alice = {

@@ -1,5 +1,4 @@
-# VM configuration for testing with QEMU
-# Run with: nix run .#vm
+# Run with: nix run .#apps.x86_64-linux.vm
 {
   inputs,
   lib,
@@ -15,16 +14,14 @@ in
     (imp.configTree ./config)
   ];
 
-  # VM-specific settings (complex nested structure, kept here)
   virtualisation = {
-    memorySize = 4096; # MB
+    memorySize = 4096;
     cores = 2;
     graphics = true;
     qemu.options = [
       "-vga virtio"
       "-display gtk,zoom-to-fit=on"
     ];
-    # Forward SSH port
     forwardPorts = [
       {
         from = "host";
@@ -32,7 +29,6 @@ in
         guest.port = 22;
       }
     ];
-    # Shared folder with host
     sharedDirectories = {
       config = {
         source = "$HOME/flakes/ix";
@@ -41,7 +37,6 @@ in
     };
   };
 
-  # Quick info on login
   environment.etc."motd".text = ''
 
     ╔═══════════════════════════════════════════════════════════╗

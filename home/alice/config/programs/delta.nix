@@ -1,5 +1,4 @@
-# Delta (git pager) configuration
-# Path: programs/delta.nix -> programs.delta = { ... }
+# Git diff pager
 { ... }:
 {
   enable = true;

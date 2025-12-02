@@ -1,4 +1,4 @@
-# services/pulseaudio.nix -> services.pulseaudio
+# Disabled in favor of PipeWire
 { ... }:
 {
   enable = false;

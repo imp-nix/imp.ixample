@@ -1,5 +1,3 @@
-# Neovim configuration
-# Path: programs/neovim.nix -> programs.neovim = { ... }
 { pkgs, ... }:
 {
   enable = true;

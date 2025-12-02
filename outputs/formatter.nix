@@ -1,4 +1,3 @@
-# Per-system formatter using treefmt-nix
 {
   pkgs,
   treefmt-nix,
