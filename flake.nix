@@ -9,52 +9,63 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
     imp.url = "github:Alb-O/imp";
-    flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
+      flake-parts,
       imp,
-      flake-utils,
       treefmt-nix,
       ...
-    }@inputs:
+    }:
     let
       lib = nixpkgs.lib;
       impLib = imp.withLib lib;
     in
-    impLib.flakeOutputs {
-      systems = flake-utils.lib.defaultSystems;
-      pkgsFor = system: nixpkgs.legacyPackages.${system};
-      args = {
-        inherit
-          self
-          inputs
-          lib
-          nixpkgs
-          home-manager
-          treefmt-nix
-          ;
-        imp = impLib;
-      };
-    } ./nix/outputs
-    // {
-      nixosModules = {
-        default = imp ./nix/modules/nixos;
-        profiles = imp ./nix/modules/profiles;
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      imports = [ imp.flakeModules.default ];
+
+      imp = {
+        src = ./nix/outputs;
+        args = {
+          inherit
+            self
+            inputs
+            lib
+            nixpkgs
+            home-manager
+            treefmt-nix
+            ;
+          imp = impLib;
+        };
       };
 
-      homeModules = {
-        default = imp ./nix/modules/home;
-      };
+      flake = {
+        nixosModules = {
+          default = imp ./nix/modules/nixos;
+          profiles = imp ./nix/modules/profiles;
+        };
 
-      overlays.default = final: prev: {
-        ix = self.packages.${prev.system} or { };
+        homeModules = {
+          default = imp ./nix/modules/home;
+        };
+
+        overlays.default = final: prev: {
+          ix = self.packages.${prev.system} or { };
+        };
       };
     };
 }

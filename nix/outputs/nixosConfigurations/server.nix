@@ -1,7 +1,7 @@
 {
   inputs,
-  imp,
   lib,
+  imp,
   ...
 }:
 lib.nixosSystem {

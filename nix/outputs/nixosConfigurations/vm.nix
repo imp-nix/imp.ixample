@@ -1,8 +1,8 @@
 # Run with: nix run .#vm
 {
   inputs,
-  imp,
   lib,
+  imp,
   home-manager,
   ...
 }:
