@@ -1,4 +1,4 @@
-# Run with: nix run .#apps.x86_64-linux.vm
+# Run with: nix run .#vm
 {
   inputs,
   imp,

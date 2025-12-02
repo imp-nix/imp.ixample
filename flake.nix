@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    imp.url = "git+file:./tmp/imp";
+    imp.url = "github:Alb-O/imp";
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
@@ -26,6 +26,9 @@
     }@inputs:
     let
       lib = nixpkgs.lib;
+    in
+    (imp.withLib lib).flakeOutputs {
+      systems = flake-utils.lib.defaultSystems;
       pkgsFor = system: nixpkgs.legacyPackages.${system};
       args = {
         inherit
@@ -35,13 +38,10 @@
           lib
           nixpkgs
           home-manager
-          flake-utils
           treefmt-nix
-          pkgsFor
           ;
       };
-    in
-    imp.treeWith lib (f: f args) ./outputs
+    } ./outputs
     // {
       nixosModules = {
         default = imp ./modules/nixos;
