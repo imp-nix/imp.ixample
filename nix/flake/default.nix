@@ -22,7 +22,7 @@ flake-parts.lib.mkFlake { inherit inputs; } {
     args.nixpkgs = nixpkgs;
 
     # Registry: reference modules by name instead of path
-    registry.src = ./..;
+    registry.src = ../registry;
 
     # Auto-generate flake.nix from __inputs declarations
     flakeFile = {
