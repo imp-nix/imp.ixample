@@ -26,7 +26,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs imp; };
-            users.alice = import registry.home.alice;
+            users.alice = import registry.users.alice;
           };
         }
       ];

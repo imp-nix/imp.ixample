@@ -1,4 +1,3 @@
-# Git diff pager
 { ... }:
 {
   enable = true;

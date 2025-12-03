@@ -17,7 +17,7 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       extraSpecialArgs = { inherit inputs; };
       modules = [
-        (imp registry.home.alice)
+        (imp registry.users.alice)
         (imp registry.modules.home)
       ];
     };
