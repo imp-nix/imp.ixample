@@ -24,6 +24,9 @@
         # Base NixOS settings
         (import registry.modules.nixos.base)
 
+        # VM gets desktop for testing
+        (import registry.modules.nixos.features.desktop)
+
         # Home Manager
         inputs.home-manager.nixosModules.home-manager
         {

@@ -27,6 +27,9 @@
         (import registry.modules.nixos.features.desktop)
         (import registry.modules.nixos.features.gaming)
 
+        # Security
+        (import registry.modules.nixos.features.hardening)
+
         # Home Manager
         inputs.home-manager.nixosModules.home-manager
         {

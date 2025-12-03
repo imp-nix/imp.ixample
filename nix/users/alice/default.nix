@@ -1,13 +1,12 @@
 {
-  imp,
   registry,
   ...
 }:
 {
   imports = [
-    # Home features (each feature uses configTree internally)
-    (import registry.modules.home.features.shell)
-    (import registry.modules.home.features.devTools)
+    # DevShell combines shell + devTools with dev-specific additions
+    (import registry.modules.home.features.devShell)
+    # Other standalone features
     (import registry.modules.home.features.modernUnix)
     (import registry.modules.home.features.sync)
   ];
