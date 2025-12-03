@@ -5,12 +5,12 @@
   inputs = {
     # Core inputs
     flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     imp.url = "github:Alb-O/imp";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Collected from __inputs
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
   outputs = inputs: import ./nix/flake inputs;

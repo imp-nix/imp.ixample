@@ -1,14 +1,15 @@
 {
   registry,
+  imp,
   ...
 }:
 {
-  imports = [
+  imports = imp.imports [
     # DevShell combines shell + devTools with dev-specific additions
-    (import registry.modules.home.features.devShell)
+    registry.modules.home.features.devShell
     # Other standalone features
-    (import registry.modules.home.features.modernUnix)
-    (import registry.modules.home.features.sync)
+    registry.modules.home.features.modernUnix
+    registry.modules.home.features.sync
   ];
 
   # User-specific git config (overrides devTools defaults)

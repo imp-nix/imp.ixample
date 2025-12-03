@@ -1,6 +1,8 @@
 # Run with: nix run .#vm
 {
   imp,
+  inputs,
+  registry,
   modulesPath,
   ...
 }:
@@ -8,7 +10,15 @@
   imports = [
     (modulesPath + "/virtualisation/qemu-vm.nix")
     (imp.configTree ./config)
+    inputs.home-manager.nixosModules.home-manager
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs imp registry; };
+    users.alice = import registry.users.alice;
+  };
 
   virtualisation = {
     memorySize = 4096;
