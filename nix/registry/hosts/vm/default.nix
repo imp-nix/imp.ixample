@@ -37,7 +37,7 @@
     ];
     sharedDirectories = {
       config = {
-        source = "$HOME/flakes/ix";
+        source = "$HOME/flakes/ixample";
         target = "/mnt/config";
       };
     };
@@ -46,7 +46,7 @@
   environment.etc."motd".text = ''
 
     ╔═══════════════════════════════════════════════════════════╗
-    ║  IX NixOS Test VM                                         ║
+    ║  ixample NixOS Test VM                                         ║
     ║                                                           ║
     ║  User: alice (password: changeme)                         ║
     ║  Root password: changeme                                  ║

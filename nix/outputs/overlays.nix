@@ -2,6 +2,6 @@
 { self, ... }:
 {
   default = final: prev: {
-    ix = self.packages.${prev.system} or { };
+    ixample = self.packages.${prev.system} or { };
   };
 }

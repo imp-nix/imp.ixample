@@ -2,14 +2,14 @@
 {
   vm = {
     type = "app";
-    meta.description = "Run the IX test VM";
+    meta.description = "Run the Ixample test VM";
     program = toString (
       pkgs.writeShellScript "run-vm" ''
-        echo "Building and running IX test VM..."
+        echo "Building and running Ixample test VM..."
         echo "Login: alice / test (or root / test)"
         echo "SSH: ssh -p 2222 alice@localhost"
         echo ""
-        exec ${self.nixosConfigurations.vm.config.system.build.vm}/bin/run-ix-vm-vm
+        exec ${self.nixosConfigurations.vm.config.system.build.vm}/bin/run-ixample-vm-vm
       ''
     );
   };
@@ -45,7 +45,7 @@
     meta.description = "Show flake configuration info";
     program = toString (
       pkgs.writeShellScript "info" ''
-        echo "IX Flake Configuration"
+        echo "Ixample Flake Configuration"
         echo "======================"
         echo ""
         echo "NixOS Configurations:"

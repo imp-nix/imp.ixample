@@ -2,6 +2,6 @@
 { ... }:
 {
   enable = true;
-  flake = "github:youruser/ix";
+  flake = "github:youruser/ixample";
   dates = "04:00";
 }

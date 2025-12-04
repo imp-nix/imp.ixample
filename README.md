@@ -1,3 +1,3 @@
-# UNDER CONSTRUCTION
+# Ixample
 
-Demonstration NixOS configurations using [imp](https://github.com/Alb-O/imp).
+Demonstration NixOS configurations using [imp](https://github.com/imp-nix/imp.lib).

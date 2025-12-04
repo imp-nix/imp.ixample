@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   default = pkgs.mkShell {
-    name = "ix-dev";
+    name = "ixample-dev";
     packages = with pkgs; [
       nil
       nixfmt-rfc-style

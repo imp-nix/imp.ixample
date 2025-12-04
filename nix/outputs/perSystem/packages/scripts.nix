@@ -3,12 +3,12 @@
 #   outputs/packages/scripts.nix -> packages.scripts.{ ... }
 { pkgs, ... }:
 {
-  backup = pkgs.writeShellScriptBin "ix-backup" ''
+  backup = pkgs.writeShellScriptBin "ixample-backup" ''
     echo "Backing up configuration..."
-    ${pkgs.rsync}/bin/rsync -av --exclude='.git' . ~/backups/ix-$(date +%Y%m%d)/
+    ${pkgs.rsync}/bin/rsync -av --exclude='.git' . ~/backups/ixample-$(date +%Y%m%d)/
   '';
 
-  clean = pkgs.writeShellScriptBin "ix-clean" ''
+  clean = pkgs.writeShellScriptBin "ixample-clean" ''
     echo "Cleaning old generations..."
     sudo nix-collect-garbage -d
     nix-collect-garbage -d
