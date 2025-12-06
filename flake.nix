@@ -8,6 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     imp.url = "github:imp-nix/imp.lib";
+    imp-graph.url = "github:imp-nix/imp.graph";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Collected from __inputs
