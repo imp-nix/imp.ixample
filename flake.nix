@@ -9,7 +9,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     imp.url = "github:imp-nix/imp.lib";
     imp-graph.url = "github:imp-nix/imp.graph";
+    imp-graph.inputs.nixpkgs.follows = "nixpkgs";
     imp-refactor.url = "github:imp-nix/imp.refactor";
+    imp-refactor.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Collected from __inputs

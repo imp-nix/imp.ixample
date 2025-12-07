@@ -8,9 +8,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # Optional: visualization support (follows imp's bundled version)
-  imp-graph.follows = "imp/imp-graph";
+  # Optional: visualization support
+  imp-graph.url = "github:imp-nix/imp.graph";
+  imp-graph.inputs.nixpkgs.follows = "nixpkgs";
 
-  # Optional: registry migration tool (follows imp's bundled version)
-  imp-refactor.follows = "imp/imp-refactor";
+  # Optional: registry migration tool
+  imp-refactor.url = "github:imp-nix/imp.refactor";
+  imp-refactor.inputs.nixpkgs.follows = "nixpkgs";
 }

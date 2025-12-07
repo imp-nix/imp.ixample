@@ -15,21 +15,6 @@
         "type": "github"
       }
     },
-    "crane_2": {
-      "locked": {
-        "lastModified": 1764903584,
-        "narHash": "sha256-RSkJtNtx0SEaQiYqsoFoRynwfZLo2OZ9z6rUq1DJR6g=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "2b3a5a88d852575758e1eb6ac9ee677fcd633fc1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "docgen": {
       "inputs": {
         "imp-fmt": [
@@ -189,17 +174,17 @@
         "docgen": "docgen",
         "flake-parts": "flake-parts_2",
         "imp-fmt": "imp-fmt",
-        "imp-graph": "imp-graph",
-        "imp-refactor": "imp-refactor",
         "nix-unit": "nix-unit",
         "nixpkgs": "nixpkgs",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1765102924,
-        "narHash": "sha256-KghXGcD15CPA/7Y36ehqkU0q68tT5dOD3kNNw4vcI5I=",
-        "path": "/home/albert/imp.devspace/imp.lib",
-        "type": "path"
+        "lastModified": 1765104245,
+        "narHash": "sha256-IgJO5NLcdef/y+tcDBisbgUlEwe2T5M4tEXV/CygcjM=",
+        "owner": "imp-nix",
+        "repo": "imp.lib",
+        "rev": "228f88d18860ae57e4bbb3f40d1c73cc7177c2e4",
+        "type": "github"
       },
       "original": {
         "owner": "imp-nix",
@@ -285,53 +270,20 @@
     "imp-graph": {
       "inputs": {
         "crane": "crane",
-        "imp-fmt": [
-          "imp",
-          "imp-fmt"
-        ],
-        "nix-unit": [
-          "imp",
-          "nix-unit"
-        ],
+        "imp-fmt": "imp-fmt_2",
+        "nix-unit": "nix-unit_2",
         "nixpkgs": [
-          "imp",
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay",
-        "treefmt-nix": [
-          "imp",
-          "treefmt-nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1764988025,
-        "narHash": "sha256-2kdpHG4Dla/G5A37gQn8K1FEqBHStwhuP+cX40Q95mc=",
-        "owner": "imp-nix",
-        "repo": "imp.graph",
-        "rev": "37c3130ea4bee5cb45801281c02597851cfa6c1f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "imp-nix",
-        "repo": "imp.graph",
-        "type": "github"
-      }
-    },
-    "imp-graph_2": {
-      "inputs": {
-        "crane": "crane_2",
-        "imp-fmt": "imp-fmt_2",
-        "nix-unit": "nix-unit_2",
-        "nixpkgs": "nixpkgs_2",
-        "rust-overlay": "rust-overlay_2",
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1764988025,
-        "narHash": "sha256-2kdpHG4Dla/G5A37gQn8K1FEqBHStwhuP+cX40Q95mc=",
+        "lastModified": 1765104233,
+        "narHash": "sha256-lm9i3Kd1xvL5bLAcJJBYrsuFwHXWnKy3Me8qmBFxMTc=",
         "owner": "imp-nix",
         "repo": "imp.graph",
-        "rev": "37c3130ea4bee5cb45801281c02597851cfa6c1f",
+        "rev": "7c0ce2ce60451adde03be5698a2baad78dca3463",
         "type": "github"
       },
       "original": {
@@ -342,50 +294,19 @@
     },
     "imp-refactor": {
       "inputs": {
-        "imp-fmt": [
-          "imp",
-          "imp-fmt"
-        ],
-        "nix-unit": [
-          "imp",
-          "nix-unit"
-        ],
-        "nixpkgs": [
-          "imp",
-          "nixpkgs"
-        ],
-        "treefmt-nix": [
-          "imp",
-          "treefmt-nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1765101865,
-        "narHash": "sha256-QDS8JqPUEdGHCuVPfkDjt9dS9sayuNULhM15BuXDjGs=",
-        "owner": "imp-nix",
-        "repo": "imp.refactor",
-        "rev": "ee04d4c11fc36322ac9adb06625b427afa5dba88",
-        "type": "github"
-      },
-      "original": {
-        "owner": "imp-nix",
-        "repo": "imp.refactor",
-        "type": "github"
-      }
-    },
-    "imp-refactor_2": {
-      "inputs": {
         "imp-fmt": "imp-fmt_3",
         "nix-unit": "nix-unit_3",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "treefmt-nix": "treefmt-nix_5"
       },
       "locked": {
-        "lastModified": 1765101865,
-        "narHash": "sha256-QDS8JqPUEdGHCuVPfkDjt9dS9sayuNULhM15BuXDjGs=",
+        "lastModified": 1765104232,
+        "narHash": "sha256-vgqvmlLcn7bvKdW/3FAsRBQ77jMReMgZyNRHK4L4FNI=",
         "owner": "imp-nix",
         "repo": "imp.refactor",
-        "rev": "ee04d4c11fc36322ac9adb06625b427afa5dba88",
+        "rev": "cd9f3fb17831ec52dc1e3651e24858d39e07d41f",
         "type": "github"
       },
       "original": {
@@ -602,38 +523,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1764667669,
-        "narHash": "sha256-7WUCZfmqLAssbDqwg9cUDAXrSoXN79eEEq17qhTNM/Y=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "418468ac9527e799809c900eda37cbff999199b6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1764667669,
-        "narHash": "sha256-7WUCZfmqLAssbDqwg9cUDAXrSoXN79eEEq17qhTNM/Y=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "418468ac9527e799809c900eda37cbff999199b6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
         "lastModified": 1761236834,
         "narHash": "sha256-+pthv6hrL5VLW2UqPdISGuLiUZ6SnAXdd2DdUE+fV2Q=",
         "owner": "nixos",
@@ -674,36 +563,14 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "imp": "imp",
-        "imp-graph": "imp-graph_2",
-        "imp-refactor": "imp-refactor_2",
-        "nixpkgs": "nixpkgs_4",
+        "imp-graph": "imp-graph",
+        "imp-refactor": "imp-refactor",
+        "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "treefmt-nix": "treefmt-nix_6"
       }
     },
     "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "imp",
-          "imp-graph",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1764902447,
-        "narHash": "sha256-wNqkDBj+tjK619sTHPEA7uhjr7DHHEY8OsFou31dxy0=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "d914a744a83098eeb28125d2848ad383b209223f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
           "imp-graph",
@@ -833,7 +700,7 @@
     },
     "treefmt-nix_6": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1762938485,
