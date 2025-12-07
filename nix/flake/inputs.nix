@@ -10,4 +10,7 @@
 
   # Optional: visualization support (enables apps.visualize, apps.imp-vis)
   imp-graph.url = "github:imp-nix/imp.graph";
+
+  # Optional: registry migration tool
+  imp-refactor.url = "github:imp-nix/imp.refactor";
 }

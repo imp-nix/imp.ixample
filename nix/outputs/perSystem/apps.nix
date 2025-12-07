@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ self, inputs, pkgs, ... }:
 {
   vm = {
     type = "app";
@@ -55,5 +55,11 @@
         nix flake show --json 2>/dev/null | ${pkgs.jq}/bin/jq -r '.homeConfigurations | keys[]' 2>/dev/null || echo "  (run 'nix flake show' for details)"
       ''
     );
+  };
+
+  refactor = {
+    type = "app";
+    meta.description = "Detect and fix broken registry references";
+    program = "${inputs.imp-refactor.packages.${pkgs.system}.default}/bin/imp-refactor";
   };
 }
