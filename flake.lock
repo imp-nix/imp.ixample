@@ -190,17 +190,16 @@
         "flake-parts": "flake-parts_2",
         "imp-fmt": "imp-fmt",
         "imp-graph": "imp-graph",
+        "imp-refactor": "imp-refactor",
         "nix-unit": "nix-unit",
         "nixpkgs": "nixpkgs",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1765102067,
-        "narHash": "sha256-lnT7jT7vc2tbyKEctYNcq1W3Gg058nJPz63iZ6XFO3E=",
-        "owner": "imp-nix",
-        "repo": "imp.lib",
-        "rev": "c4819b776dfeb8d84f95ea2d92555e61345fce15",
-        "type": "github"
+        "lastModified": 1765102924,
+        "narHash": "sha256-KghXGcD15CPA/7Y36ehqkU0q68tT5dOD3kNNw4vcI5I=",
+        "path": "/home/albert/imp.devspace/imp.lib",
+        "type": "path"
       },
       "original": {
         "owner": "imp-nix",
@@ -342,6 +341,39 @@
       }
     },
     "imp-refactor": {
+      "inputs": {
+        "imp-fmt": [
+          "imp",
+          "imp-fmt"
+        ],
+        "nix-unit": [
+          "imp",
+          "nix-unit"
+        ],
+        "nixpkgs": [
+          "imp",
+          "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "imp",
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765101865,
+        "narHash": "sha256-QDS8JqPUEdGHCuVPfkDjt9dS9sayuNULhM15BuXDjGs=",
+        "owner": "imp-nix",
+        "repo": "imp.refactor",
+        "rev": "ee04d4c11fc36322ac9adb06625b427afa5dba88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "imp-nix",
+        "repo": "imp.refactor",
+        "type": "github"
+      }
+    },
+    "imp-refactor_2": {
       "inputs": {
         "imp-fmt": "imp-fmt_3",
         "nix-unit": "nix-unit_3",
@@ -643,7 +675,7 @@
         "home-manager": "home-manager",
         "imp": "imp",
         "imp-graph": "imp-graph_2",
-        "imp-refactor": "imp-refactor",
+        "imp-refactor": "imp-refactor_2",
         "nixpkgs": "nixpkgs_4",
         "nur": "nur",
         "treefmt-nix": "treefmt-nix_6"
