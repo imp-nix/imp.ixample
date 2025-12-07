@@ -1,4 +1,9 @@
-{ self, inputs, pkgs, ... }:
+{
+  self,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   vm = {
     type = "app";

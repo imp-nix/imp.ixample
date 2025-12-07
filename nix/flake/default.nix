@@ -18,7 +18,7 @@ in
 flake-parts.lib.mkFlake { inherit inputs; } {
   imports = [
     imp.flakeModules.default
-    imp.flakeModules.visualize # Adds apps.visualize, apps.imp-vis when imp-graph input present
+    imp.flakeModules.visualize # Adds apps.graph, apps.imp-graph when imp-graph input present
   ];
 
   # imp configuration - directory structure defines the flake
