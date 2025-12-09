@@ -1,13 +1,28 @@
-# Gaming feature
-# Steam, gamemode, and graphics support for gaming on NixOS
-{ ... }:
+/**
+  Gaming feature.
+
+  Steam, gamemode, and graphics support for gaming on NixOS.
+  Exports to `nixos.role.desktop` for aggregation-based consumption.
+*/
+let
+  gamingModule =
+    { ... }:
+    {
+      programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+      };
+
+      programs.gamemode.enable = true;
+
+      hardware.graphics.enable32Bit = true;
+    };
+in
 {
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
+  __exports."nixos.role.desktop" = {
+    value = gamingModule;
+    strategy = "mkMerge";
   };
 
-  programs.gamemode.enable = true;
-
-  hardware.graphics.enable32Bit = true;
+  __functor = _: gamingModule;
 }
