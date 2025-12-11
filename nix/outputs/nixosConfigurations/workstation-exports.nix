@@ -3,7 +3,7 @@
 
   Demonstrates the export pattern: instead of manually importing features,
   consume the aggregated `nixos.role.desktop` sink which merges all modules
-  that declared `__exports."nixos.role.desktop"`.
+  that declared `__exports.nixos.role.desktop`.
 */
 {
   lib,

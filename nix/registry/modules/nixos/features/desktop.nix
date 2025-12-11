@@ -35,7 +35,7 @@ let
     };
 in
 {
-  __exports."nixos.role.desktop" = {
+  __exports.nixos.role.desktop = {
     value = desktopModule;
     strategy = "mkMerge";
   };
